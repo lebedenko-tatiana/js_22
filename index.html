@@ -1,0 +1,71 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JS HomeWork22</title>
+
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="js/tmpl.js"></script> 
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+
+  <script src="js/dist/script.js"></script>
+</head>
+
+<body>
+
+
+  <script type="text/html" id="hw">
+
+    <div class="wrapper">
+
+      <h1><%= head %></h1>
+ 
+      <form class="ftest" name="TestForm">
+
+      <% for (var n = 0; n < questions.length; n++) { %>   
+        <p><strong><%= questions[n].question %></strong></p>
+ 
+        <% for (var i = 0; i < questions[n].answers.length; i++) { %>   
+          <label class="question__label">
+          <input id="check_id<%= n + 1 %><%= i + 1 %>" class="question__checkbox" type="radio" name="answer_group<%= n %>" value=<%= i %>>
+          <%= questions[n].answers[i] %>
+          </label>
+        <% }; %>
+
+      <% }; %>
+
+      <input class="question__button" type="button" value="Проверить мои результаты" data-toggle="modal" data-target="#myModal">
+
+      </form>
+
+    </div>
+
+  </script> 
+
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Результаты теста</h4>
+        </div>
+        <div class="modal-body">
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+
+</html>
